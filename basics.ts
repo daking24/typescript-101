@@ -90,3 +90,69 @@ const demoArray = [1, 2, 3];
 
 const updatedArray = insertAtBeginning(demoArray, -4);
 const stringArray = insertAtBeginning(['Hello', 'World'], 'David');
+
+class Student {
+    // firstName: string;
+    // lastName: string;
+    // age: number;
+    // courses: string[];
+
+    constructor(
+        public firstName: string,
+        public lastName: string,
+        public age: number,
+        private courses: string[]
+        ){}
+
+    enrollInCourse(course: string){
+        this.courses.push(course);
+    }
+
+    listCourse(){
+        return this.courses.slice();
+    }
+}
+
+const student = new Student('David', 'Smith', 30, ['Math', 'English']);
+student.enrollInCourse('English');
+  
+
+// Interfaces -> Object types defined by the developer
+interface Person {
+    firstName: string;
+    lastName: string;
+    age: number;
+
+    greet: () => void;
+}
+
+let max: Person;
+
+max = {
+    firstName: 'David',
+    lastName: 'Smith',
+    age: 30,
+    greet: () => {
+        console.log('Hi');
+    }   
+};
+// They can interact with classes
+
+class Instructor implements Person {
+    firstName: string;
+    lastName: string;
+    age: number;
+    courses: string[];
+
+    constructor(firstName: string, lastName: string, age: number, courses: string[]){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.courses = courses;
+    }
+
+    greet(){
+        console.log('Hello');
+    }
+}
+
