@@ -66,3 +66,27 @@ let car: Car[] = [
         year: 2020
     }
 ];
+
+// Functions & types
+
+function add(a: number, b: number){
+    return a + b;
+}
+
+add(1, 2);
+
+function printOutput(value: any){
+    console.log(value);
+}
+
+// Generic types
+
+function insertAtBeginning<S>(array:S[], value: S){
+    const newArray = [value, ...array];
+    return newArray;
+}
+
+const demoArray = [1, 2, 3];
+
+const updatedArray = insertAtBeginning(demoArray, -4);
+const stringArray = insertAtBeginning(['Hello', 'World'], 'David');
